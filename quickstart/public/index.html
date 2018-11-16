@@ -1,12 +1,64 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Speculo</title>
+  <link rel="stylesheet" href="bootstrap.min.css">
   <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
-<div id="main-media"></div>
-<div id="remote-media"></div>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <a class="navbar-brand" href="#">Speculo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+
+      </ul>
+      <form class="form-inline mt-2 mt-md-0">
+        <div id="controls">
+          <div id="room-controls">
+            <input class="form-control mr-sm-2" type="text" placeholder="Enter a room name" type="text" id="room-name">
+            <button class="btn btn-outline-success my-2 my-sm-0" type=button id="button-join">Join</button>
+            <button class="btn btn-outline-danger my-2 my-sm-0" type=button id="button-leave">Leave</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </nav>
+  <main role="main" class="container">
+
+    <div class="row">
+      <div class="col-md-8">
+        <div id="main-media"></div>
+      </div>
+      <div class="col-md-4">
+        <div id="remote-media"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+
+        <div id="preview">
+          <h2>Hello</h2>
+          <div id="local-media"></div>
+          <button type="button" class="btn btn-dark" id="button-preview">Preview My Camera</button>
+        </div>
+
+      </div>
+      <div class="col-6" id="log">
+        
+      </div>
+    </div>
+
+  </main>
+  <!-- <div id="all-media">
+    <div id="main-media"></div>
+    <div id="remote-media"></div>
+</div>
 <div id="controls">
   <div id="preview">
     <p class="instructions">Hello Beautiful</p>
@@ -20,9 +72,11 @@
     <button id="button-leave">Leave Room</button>
   </div>
   <div id="log"></div>
-</div>
+</div> -->
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="index.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+  <script src="index.js"></script>
 </body>
+
 </html>
