@@ -42,7 +42,9 @@ window.addEventListener('beforeunload', leaveRoomIfJoined);
 // Obtain a token from the server in order to connect to the Room.
 $.getJSON('/token', function(data) {
   identity = data.identity;
-  document.getElementById('room-controls').style.display = 'block';
+  // document.getElementById('room-controls').style.display = 'block';
+  document.getElementById('button-join').style.display = 'inline';
+  document.getElementById('button-leave').style.display = 'none';
 
   // Bind button to join Room.
   document.getElementById('button-join').onclick = function() {
@@ -81,6 +83,7 @@ function roomJoined(room) {
   window.room = activeRoom = room;
 
   log("Joined as '" + identity + "'");
+  document.getElementById('username').innerHTML = identity;
   document.getElementById('button-join').style.display = 'none';
   document.getElementById('button-leave').style.display = 'inline';
 
@@ -108,7 +111,7 @@ function roomJoined(room) {
 
   // When a Participant adds a Track, attach it to the DOM.
   room.on('trackAdded', function(track, participant) {
-    log(participant.identity + " added track: " + track.kind);
+    // log(participant.identity + " added track: " + track.kind);
     if (participant.identity.startsWith("Zak")) {
       var previewContainer = document.getElementById('main-media');
     } else {
@@ -119,7 +122,7 @@ function roomJoined(room) {
 
   // When a Participant removes a Track, detach it from the DOM.
   room.on('trackRemoved', function(track, participant) {
-    log(participant.identity + " removed track: " + track.kind);
+    // log(participant.identity + " removed track: " + track.kind);
     detachTracks([track]);
   });
 
@@ -133,6 +136,7 @@ function roomJoined(room) {
   // of all Participants, including that of the LocalParticipant.
   room.on('disconnected', function() {
     log('Left');
+    document.getElementById('username').innerHTML = "";
     if (previewTracks) {
       previewTracks.forEach(function(track) {
         track.stop();
